@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plásticos e Lonas | Recife Home Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Ícones básicos para as setas (simulação) */
+        .arrow {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        /* Variáveis CSS para Cores - Baseadas na Logo */
+        :root {
+            --cor-azul-escuro: #1A5276;
+            --cor-laranja: #FF8C00;
+            --cor-cinza-claro: #f8f9fa;
+            --cor-texto-escuro: #343a40;
+            --cor-texto-claro: #ffffff;
+            --cor-borda: #dee2e6;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--cor-texto-escuro);
+            background-color: var(--cor-cinza-claro);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Cabeçalho e Navegação (DESKTOP) --- */
+        .header-top { background-color: var(--cor-azul-escuro); color: var(--cor-texto-claro); padding: 8px 0; font-size: 0.85rem; text-align: center; }
+        .header-main { background-color: var(--cor-texto-claro); padding: 20px 0; border-bottom: 1px solid var(--cor-borda); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; min-height: 80px; position: relative; }
+        .logo img { max-height: 100px; width: auto; max-width: 100%; display: block; }
+        .contact-info { display: flex; align-items: center; gap: 25px; }
+        .contact-phone { text-align: right; }
+        .contact-phone .label { display: block; font-size: 0.85rem; color: var(--cor-texto-escuro); }
+        .contact-phone .number { display: block; font-size: 1.5rem; font-weight: 800; color: var(--cor-azul-escuro); text-decoration: none; }
+        .btn-action { background-color: var(--cor-laranja); color: var(--cor-texto-claro); text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: 700; transition: background-color 0.3s; white-space: nowrap; text-transform: uppercase; font-size: 0.95rem; }
+        .btn-action:hover { background-color: #e88000; }
+        .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cor-azul-escuro); cursor: pointer; padding: 10px; z-index: 1100; }
+
+        /* --- Menu de Categorias Principal (DESKTOP) --- */
+        .menu-categorias { background-color: var(--cor-texto-claro); padding: 10px 0; border-bottom: 3px solid var(--cor-laranja); }
+        .menu-categorias ul { list-style: none; display: flex; justify-content: space-between; }
+        .menu-categorias ul li a { text-decoration: none; color: var(--cor-texto-escuro); font-weight: 600; padding: 10px 15px; display: block; transition: color 0.3s; }
+        .menu-categorias ul li a:hover { color: var(--cor-laranja); }
+        
+        /* --- CARROSSEL, CONTEÚDO, ETC (COM ALTERAÇÃO NA URL DO FOOTER) --- */
+        .carousel-wrapper{height:450px;margin-bottom:40px;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 4px 15px rgba(0,0,0,.1)}.carousel-container{height:100%;width:400%;display:flex;transition:transform .5s ease-in-out}.carousel-slide{width:25%;height:100%;flex-shrink:0;position:relative}.carousel-slide img{width:100%;height:100%;object-fit:cover}.slide-caption{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--cor-texto-claro);text-shadow:0 0 10px rgba(0,0,0,.5);background:rgba(0,0,0,.2)}.slide-caption h2{font-size:2.5rem;font-weight:800;text-align:center;max-width:80%;padding:15px;border:3px solid var(--cor-laranja);border-radius:5px}.carousel-button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:var(--cor-texto-claro);border:none;padding:10px;cursor:pointer;z-index:10;transition:background .3s;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center}.carousel-button:hover{background:var(--cor-laranja)}#prev-btn{left:10px}#next-btn{right:10px}.main-content{padding:40px 0}.product-slider{position:relative;overflow:hidden;margin:20px 0 40px;padding:0 40px}.product-carousel{display:flex;transition:transform .5s ease-in-out;padding:0}.service-card{
+            /* CORREÇÃO APLICADA AQUI: Ajustado para garantir que 3 itens caibam na tela com 20px de margem no total (10px de cada lado) */
+            min-width: calc(33.333% - 20px); 
+            margin: 0 10px;
+            background-color: var(--cor-texto-claro);
+            border: 1px solid var(--cor-borda);
+            border-top: 5px solid var(--cor-azul-escuro);
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+            transition: transform .3s,box-shadow .3s;
+            flex-shrink: 0;
+        }.service-card img{max-width:100%;height:150px;object-fit:cover;border-radius:3px;margin-bottom:15px;display:block;margin-left:auto;margin-right:auto}.product-slider .carousel-button{top:50%;transform:translateY(-50%);position:absolute;z-index:10;background:rgba(26,82,118,.8);color:#fff;padding:5px;border-radius:5px;width:30px;height:30px}.product-slider #prev-product-btn{left:5px}.product-slider #next-product-btn{right:5px}.whatsapp-float{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 3px #999;z-index:1000;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background-color .3s,transform .3s;animation:pulse 1.5s infinite}.whatsapp-float:hover{background-color:#128c7e;transform:scale(1.05);animation:none}@keyframes pulse{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(37,211,102,.7)}70%{transform:scale(1);box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{transform:scale(.95);box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+        /* --- Rodapé Moderno --- */
+        .site-footer{width:100%;margin-top:40px}.footer-banner{height:60px;background-image:url('imgs/url_da_sua_imagem_de_banner.png');background-color:#ccc;background-size:cover;background-position:center}.footer-content-modern{background-color:#EA7C3A;color:#FFF;padding:50px 20px;text-align:center}.footer-logo img{max-width:200px;margin-bottom:30px}.footer-nav ul{list-style:none;padding:0;margin:0 0 30px;display:flex;justify-content:center;flex-wrap:wrap;gap:15px 25px}.footer-nav a{color:#FFF;text-decoration:none;font-size:1rem;font-weight:600;transition:all .3s ease}.footer-nav a:hover{text-decoration:underline;opacity:.8}.footer-social{margin-bottom:30px}.footer-social a{color:#FFF;font-size:26px;margin:0 15px;text-decoration:none;transition:transform .3s ease}.footer-social a:hover{transform:scale(1.2)}.footer-info p{margin:5px 0;font-size:.875rem;opacity:.9}
+
+        /* ========================================================== */
+        /* ESTILOS PARA O MENU MOBILE (COM OVERLAY)                   */
+        /* ========================================================== */
+        
+        /* NOVO: Estilo para o botão de fechar (X) no menu mobile */
+        .menu-close-btn {
+            display: none; /* Escondido por padrão (somente mobile) */
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            
+            background: none;
+            border: none;
+            color: var(--cor-laranja); /* Cor Laranja da sua identidade */
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1060; /* Acima de tudo no menu */
+        }
+
+        .menu-close-btn:hover {
+            color: #e88000;
+        }
+
+        @media (max-width: 992px) {
+            /* 1. Esconde o que não queremos no cabeçalho mobile */
+            .contact-info { display: none; }
+            .header-top { font-size: 0.75rem; }
+
+            /* 2. Mostra o botão hambúrguer */
+            .menu-toggle { display: block; }
+
+            /* 3. Estiliza o menu de categorias para ser o menu lateral */
+            .menu-categorias {
+                position: fixed; top: 0; right: 0;
+                width: 280px; height: 100vh;
+                background-color: var(--cor-azul-escuro);
+                padding: 80px 20px 20px; /* Ajustado para dar espaço ao botão X */
+                z-index: 1050; /* Z-index alto para ficar sobre o overlay */
+                transform: translateX(100%); 
+                transition: transform 0.4s ease-in-out;
+                border-bottom: none;
+            }
+
+            /* 4. Classe 'active' que o JavaScript vai adicionar para mostrar o menu */
+            .menu-categorias.active {
+                transform: translateX(0);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+
+            /* 5. Ajusta a lista e os links dentro do menu mobile */
+            .menu-categorias ul { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .menu-categorias ul li a { color: var(--cor-texto-claro); font-size: 1.1rem; width: 100%; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .menu-categorias ul li a:hover { background-color: var(--cor-laranja); color: var(--cor-texto-claro); }
+            
+            /* 6. Mostra o botão de fechar (X) */
+            .menu-close-btn {
+                display: block;
+            }
+            
+            /* 7. Estilo para o Overlay (fundo escuro) */
+            .menu-overlay {
+                position: fixed; top: 0; left: 0;
+                width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                z-index: 1040; /* Abaixo do menu, mas acima do resto */
+                
+                /* Escondido por padrão */
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease, visibility 0.4s ease;
+            }
+
+            /* 8. Classe 'active' para mostrar o overlay */
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Ajustes gerais de layout para mobile */
+            .whatsapp-float{width:50px;height:50px;bottom:20px;right:20px;font-size:25px}
+            .service-card img{height:120px}
+        }
+        
+        /* Estilos específicos da página (Mantenha a mesma estrutura que usaria em outras páginas) */
+        .page-header {
+            background-color: var(--cor-azul-escuro);
+            color: var(--cor-texto-claro);
+            padding: 50px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        .product-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .gallery-item {
+            width: 100%;
+            max-width: 350px;
+            background-color: var(--cor-texto-claro);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery-item-content h3 {
+            color: var(--cor-azul-escuro);
+            margin-bottom: 10px;
+        }
+        .gallery-item-content p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                Visite Nossa Loja: Av. Beberibe, 838 - Arruda, Recife/PE | Atendimento: Segunda à Sábado
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a href="index.html"><img src="imgs/recife4.png" alt="Recife Home Center Logo"></a>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-phone">
+                            <span class="label">FALE CONOSCO</span>
+                            <a href="tel:08133668282" class="number">(81) 3366-8282</a>
+                        </div>
+                        <a href="#contato" class="btn-action">SOLICITAR ORÇAMENTO</a>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="menu-categorias" id="menu-categorias">
+            <button class="menu-close-btn" id="menu-close-btn" aria-label="Fechar Menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="container">
+                <ul> 
+                    <li><a href="tecidos-couros.html">TECIDOS E COUROS</a></li>
+                    <li><a href="plasticos-lonas.html">PLASTICOS E LONAS</a></li>
+                    <li><a href="cama-mesa-banho.html">CAMA, MESA E BANHO</a></li>
+                    <li><a href="papelaria.html">PAPELARIA</a></li>
+                    <li><a href="redes-sociais.html">REDES SOCIAIS</a></li>
+                    <li><a href="localizacao.html">LOCALIZAÇÃO</a></li>
+                    <li><a href="contato.html">CONTATO</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <main class="main-content">
+        
+        <section class="page-header">
+            <div class="container">
+                <h1>PLÁSTICOS E LONAS</h1>
+                <p>O maior estoque de plásticos e lonas para cobertura, proteção e decoração em Pernambuco.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 30px;">Linhas e Aplicações</h2>
+            
+            <section class="product-gallery">
+                
+                <div class="gallery-item">
+                    <img src="imgs/lonas.jpg" alt="Lona Transparente">
+                    <div class="gallery-item-content">
+                        <h3>Lonas Transparentes</h3>
+                        <p>Ideais para estufas, proteção de áreas externas e fechamentos provisórios. Alta resistência e visibilidade.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="imgs/toalhademesa.jpg" alt="Toalhas De Mesa">
+                    <div class="gallery-item-content">
+                        <h3>Toalhas De Mesa</h3>
+                        <p>Vista sua mesa com elegância! Encontre toalhas que unem beleza, qualidade e praticidade para todas as ocasiões.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="imgs/Plastico-Bolha-1.30x100m-20-Micras.png" alt="Plástico Bolha e Embalagens">
+                    <div class="gallery-item-content">
+                        <h3>Plástico Bolha e Embalagens</h3>
+                        <p>Materiais de proteção para transporte, mudança e armazenagem. Garanta a segurança dos seus itens frágeis.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="imgs/laminados.jpg" alt="Geomembrana e Laminados">
+                    <div class="gallery-item-content">
+                        <h3>Laminados e Geomembranas</h3>
+                        <p>Produtos técnicos para projetos de engenharia, construção civil e proteção de solo. Consulte nosso catálogo.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <h2 style="margin-top: 60px; text-align: center;">Vantagens de Comprar Conosco</h2><hr style="margin-bottom: 30px;">
+            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">Na Recife Home Center, a qualidade dos nossos **Plásticos e Lonas** é inigualável. Trabalhamos com materiais de alta densidade, resistentes a UV e a intempéries, garantindo a **durabilidade** e o **melhor custo-benefício** para sua obra, evento ou projeto industrial. Se você busca o material certo, com metragem exata e preços competitivos, somos a sua melhor escolha. <br><a href="#contato" style="color: var(--cor-laranja); font-weight: 700;"> Faça seu orçamento sem compromisso!</a></p>
+        </div>
+        </main>
+
+    <footer class="site-footer">
+        <div class="footer-banner"></div>
+        <div class="footer-content-modern">
+            <div class="footer-logo">
+                <a href="index.html"><img src="imgs/recife4.png" alt="Recife Home Center Logo"></a>
+            </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="tecidos-couros.html">TECIDOS E COUROS</a></li>
+                    <li><a href="plasticos-lonas.html">PLASTICOS E LONAS</a></li>
+                    <li><a href="cama-mesa-banho.html">CAMA, MESA E BANHO</a></li>
+                    <li><a href="papelaria.html">PAPELARIA</a></li>
+                    <li><a href="localizacao.html">LOCALIZAÇÃO</a></li>
+                    <li><a href="contato.html">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="footer-info">
+                <p>Recife Home Center | Tecidos, Plásticos, Lonas e Acessórios</p><p>Copyright (C) 2025. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/5581999999999?text=Olá! Gostaria de um orçamento da Recife Home Center." target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // =================================================
+            // CÓDIGO DO MENU RESPONSIVO (MOBILE)
+            // =================================================
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuCategorias = document.getElementById('menu-categorias');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const menuCloseBtn = document.getElementById('menu-close-btn');
+            
+            if (menuToggle && menuCategorias && menuOverlay) {
+
+                const closeMenu = () => {
+                    menuCategorias.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                };
+
+                const openMenu = () => {
+                    menuCategorias.classList.add('active');
+                    menuOverlay.classList.add('active');
+                };
+
+                menuToggle.addEventListener('click', () => {
+                    if (menuCategorias.classList.contains('active')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+
+                menuOverlay.addEventListener('click', closeMenu);
+                
+                if (menuCloseBtn) {
+                    menuCloseBtn.addEventListener('click', closeMenu);
+                }
+            }
+            
+            // NOTE: O carrossel principal e o slider de produtos não são necessários em uma página de categoria,
+            // mas mantive a estrutura básica do DOM para evitar erros de JS que você possa ter no futuro.
+            // Eu APAGUEI o código dos sliders daqui para não poluir ou causar erros.
+        });
+    </script>
+</body>
+</html>
